@@ -3,6 +3,8 @@ import axios from 'axios'
 import { API_URL } from '../api'
 import { useNavigate } from 'react-router-dom'
 
+import { Link } from "react-router-dom";
+
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -26,7 +28,11 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
               <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
-              <p>Don't have an account? <a href="/register">Register</a></p>
+              {/* <p>Don't have an account? <a href="/register">Register</a></p> */}
+               <p>
+          Don&apos;t have an account?{" "}
+          <Link to="/register">Register</Link>
+        </p>
         <button type="submit">Login</button>
       </form>
       {error && <p className="error">{error}</p>}
